@@ -6,7 +6,7 @@ import { Contract } from "ethers";
  * Deploys a contract named "YourContract" using the deployer account and
  * constructor arguments set to the deployer address
  *
- * @param hre HardhatRuntimeEnvironment object.
+ * @param hre HardhatcoRuntimeEnvironment object.
  */
 const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
