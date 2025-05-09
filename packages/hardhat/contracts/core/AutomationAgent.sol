@@ -7,6 +7,13 @@ pragma solidity ^0.8.19;
  * @notice Orchestrates tasks, handles gas, and integrates offchain agents/AI.
  * @dev Acts as a middleware between users and core contracts (Scheduler/Executer).
  */
+
+
+////////////////////////////////////////////////////
+/////  I THINK THIS CONTRACT IS NOT MUCH USEFUL ///
+/////  SINCE Executor and Scheduler are already ////
+///////////////////////////////////////////////////
+
 contract AutomationAgent {
     // ------------------------ Custom Errors ------------------------
     error Unauthorized();
@@ -18,8 +25,8 @@ contract AutomationAgent {
         address user;
         address target;
         bytes payload;
-        uint256 gasCredit;  // Prepaid gas budget (optional)
-        bytes32 conditionsHash;  // E.g., "APY > 5%" (checked offchain)
+        uint256 gasCredit;  
+        bytes32 conditionsHash;  
     }
 
     event TaskSubscribed(uint256 indexed taskId, address indexed user);
@@ -81,7 +88,6 @@ contract AutomationAgent {
         TaskConfig memory config = tasks[taskId];
         if (config.user == address(0)) revert Unauthorized();
 
-        // Validate conditions (offchain proof or onchain checks)
         if (!_validateConditions(config.conditionsHash, conditionsProof)) {
             revert TaskConditionsNotMet();
         }
@@ -95,7 +101,7 @@ contract AutomationAgent {
                 config.user,
                 config.target,
                 config.payload,
-                0  // value (ETH) can be embedded in payload)
+                0  // value
             )
         );
 
@@ -107,8 +113,10 @@ contract AutomationAgent {
         bytes32 conditionsHash,
         bytes calldata proof
     ) internal pure returns (bool) {
-        // Example: Verify signed offchain data (e.g., APY > 5%)
-        // For MVP, assume proof is valid (add Chainlink/Oracle later)
+        // like.. Verify signed offchain data (forex.., APY > 5%)
+        /////////////////////////////////////////////////////////////////////////////////
+        //// ask Sipho if which oracle we'll have to use btn chainlink n gelato | flare//
+        /////////////////////////////////////////////////////////////////////////////////
         return conditionsHash == keccak256(proof);
     }
 }

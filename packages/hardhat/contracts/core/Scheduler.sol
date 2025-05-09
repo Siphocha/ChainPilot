@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-/**
- * @title ChainPilot - Scheduler Contract
+/** 
+ * @author @0xJonaseb11
+ * @title ChainPilotScheduler Contract
  * @notice Queues time-based tasks for off-chain keepers to execute via Executer.
  * @dev Features tight integration with Executer contract, packed storage, and enhanced security.
  */
@@ -69,7 +70,7 @@ contract ChainPilotScheduler is ChainPilotExecutor {
         _;
     }
 
-    // ------------------------ External Functions ------------------------
+    // ------------------------ Externals ------------------------
     /**
      * @notice Schedule a new task via Executer
      * @param executeAt When the task should run (timestamp)
@@ -140,7 +141,7 @@ contract ChainPilotScheduler is ChainPilotExecutor {
         emit TaskCancelled(taskId);
     }
 
-    // ------------------------ Keeper Functions ------------------------
+    // ------------------------ Keepers ------------------------
     /**
      * @notice Execute a scheduled task via Executer
      */
@@ -174,7 +175,7 @@ contract ChainPilotScheduler is ChainPilotExecutor {
         return success;
     }
 
-    // ------------------------ View Functions ------------------------
+    // ------------------------ Views ------------------------
     /**
      * @notice Get pending tasks within a time range
      */

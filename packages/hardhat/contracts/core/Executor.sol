@@ -2,11 +2,19 @@
 pragma solidity ^0.8.19;
 
 /**
- * @title Executer Contract
+ * @author @0xJonaseb11
+ * @title ChainPilotExecutor Contract
  * @notice Securely executes pre-approved tasks from Scheduler
  * @dev Uses EIP-712 signatures for approvals and optimized for Base network
  */
+
+///////////////////////////////////////////////////
+////////   REMEMBER TO ASK SIPHO IF WE NEED AA ////
+////////.  SO I CAN SETUP EntryPoint.sol ////////
+////////////////////////////////////////////////
+
 contract ChainPilotExecutor {
+
     // ------------------------ Custom Errors ------------------------
     error UnauthorizedExecuter(address user, bytes32 taskHash);
     error ExecutionFailed(bytes reason);

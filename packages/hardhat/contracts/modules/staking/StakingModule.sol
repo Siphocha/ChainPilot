@@ -5,6 +5,7 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Base} from "../base/Base.sol";
 
 /**
+ * @author @0xJonaseb11
  * @title ChainPilot - Staking Module
  * @notice Handles ERC20/ETH staking with time/amount-based rewards.
  * @dev Inherits from Base.sol for ownership/pausing. Uses checkpointing for scalable rewards.
@@ -18,7 +19,7 @@ contract StakingModule is Base {
     }
 
     struct RewardConfig {
-        uint256 rate; // Rewards per second per token (wei)
+        uint256 rate; 
         uint256 minStakeDuration;
         address rewardToken;
     }
@@ -62,7 +63,7 @@ contract StakingModule is Base {
         if (amount == 0) revert InvalidAmount();
 
         Stake storage userStake = stakes[msg.sender];
-        _claimRewards(msg.sender); // Claim pending rewards first
+        _claimRewards(msg.sender); 
 
         userStake.amount += amount;
         userStake.startTime = block.timestamp;
@@ -104,7 +105,7 @@ contract StakingModule is Base {
         _claimRewards(msg.sender);
     }
 
-    // ------------------------ View Functions ------------------------
+    // ------------------------ Views ------------------------
     /**
      * @notice Calculate pending rewards for a user.
      * @dev Uses checkpointing to avoid storage writes during reads.
@@ -117,7 +118,7 @@ contract StakingModule is Base {
         return (userStake.amount * rewardConfig.rate * elapsed) / 1e18;
     }
 
-    // ------------------------ Admin Functions ------------------------
+    // ------------------------ Admins ------------------------
     /**
      * @notice Update reward rate (owner only).
      */
@@ -125,7 +126,7 @@ contract StakingModule is Base {
         rewardConfig.rate = newRate;
     }
 
-    // ------------------------ Internal Functions ------------------------
+    // ------------------------ Internals------------------------
     function _claimRewards(address user) internal {
         uint256 rewards = pendingRewards(user);
         if (rewards == 0) return;

@@ -18,11 +18,10 @@ contract TemplateManager {
     struct Template {
         address owner;
         address target;
-        bytes payload;  // Encoded function call (e.g., "send 0.1 ETH to A, B, C")
+        bytes payload;  
         bool isPublic;
-        bool isLocked;  // Immutable once locked
+        bool isLocked;  
     }
-
     event TemplateCreated(uint256 indexed templateId, address indexed owner);
     event TemplateUsed(uint256 indexed templateId, address indexed user);
 
