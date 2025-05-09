@@ -4,6 +4,7 @@ pragma solidity ^0.8.19;
 import {Base} from "../base/Base.sol";
 
 /**
+ * @author @0xJonaseb11
  * @title ChainPilot - Payments Module
  * @notice Handles single and batch ETH/ERC20 transfers with gas optimizations.
  * @dev Inherits from Base.sol for shared utilities (e.g., error handling, access control).
