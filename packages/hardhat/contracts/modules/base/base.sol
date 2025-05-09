@@ -65,14 +65,4 @@ abstract contract Base {
         paused = false;
         emit Unpaused(msg.sender);
     }
-
-    // ------------------------ Gas Refund Utilities (Base L2 Optimized) ------------------------
-    /**
-     * @dev Base L2 refunds are automatic under EIP-1559, but this ensures compatibility.
-     */
-    function _refundGasLeft() internal {
-        assembly {
-            let success := call(gas(), tx.origin, selfbalance(), 0, 0, 0, 0)
-        }
-    }
 }

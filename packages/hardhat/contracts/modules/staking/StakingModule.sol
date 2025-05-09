@@ -27,6 +27,9 @@ contract StakingModule is Base {
     event Unstaked(address indexed user, uint256 amount);
     event RewardClaimed(address indexed user, uint256 amount);
 
+    error InvalidAmount();
+    error NoStake();
+
     // ------------------------ Storage ------------------------
     IERC20 public immutable stakingToken;
     RewardConfig public rewardConfig;

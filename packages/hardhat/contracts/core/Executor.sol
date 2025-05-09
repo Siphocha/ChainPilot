@@ -2,60 +2,90 @@
 pragma solidity ^0.8.19;
 
 /**
- * @title ChainPilot - Executer Contract
- * @notice Securely executes pre-approved tasks (e.g., swaps, votes) on behalf of users.
- * @dev Uses custom errors, EIP-712 approvals, and gas optimizations for Base.
+ * @title Executer Contract
+ * @notice Securely executes pre-approved tasks from Scheduler
+ * @dev Uses EIP-712 signatures for approvals and optimized for Base network
  */
-contract Executer {
+contract ChainPilotExecutor {
     // ------------------------ Custom Errors ------------------------
-    error Unauthorized();
-    error ExecutionFailed();
-    error InvalidApproval();
+    error UnauthorizedExecuter(address user, bytes32 taskHash);
+    error ExecutionFailed(bytes reason);
+    error InvalidValue(uint256 expected, uint256 actual);
+    error ExpiredApproval(uint256 deadline);
 
     // ------------------------ Events ------------------------
-    event TaskApproved(address indexed user, bytes32 indexed taskHash);
-    event TaskExecuted(address indexed user, address indexed target, bool success);
+    event TaskApproved(
+        address indexed user,
+        bytes32 indexed taskHash,
+        uint256 maxValue,
+        uint256 deadline
+    );
+    event TaskExecuted(
+        address indexed user,
+        address indexed target,
+        bytes32 indexed taskHash,
+        uint256 value,
+        bool success
+    );
 
     // ------------------------ Storage ------------------------
-    mapping(address => mapping(bytes32 => bool)) public userApprovals;
+    struct Approval {
+        uint256 maxValue;
+        uint256 deadline;
+    }
+
+    mapping(address => mapping(bytes32 => Approval)) public userApprovals;
 
     // ------------------------ External Functions ------------------------
     /**
-     * @notice Pre-approve a task (called by users).
-     * @param target Contract to interact with (e.g., Uniswap, Aave).
-     * @param payload Encoded function call data.
-     * @param maxValue Max ETH/ERC20 value allowed for the task.
+     * @notice Pre-approve a task with deadline
      */
     function approveTask(
         address target,
         bytes calldata payload,
-        uint256 maxValue
+        uint256 maxValue,
+        uint256 deadline
     ) external {
-        bytes32 taskHash = keccak256(abi.encode(target, payload, maxValue));
-        userApprovals[msg.sender][taskHash] = true;
-        emit TaskApproved(msg.sender, taskHash);
+        bytes32 taskHash = getTaskHash(target, payload, maxValue);
+        userApprovals[msg.sender][taskHash] = Approval(maxValue, deadline);
+        emit TaskApproved(msg.sender, taskHash, maxValue, deadline);
     }
 
     /**
-     * @notice Execute a pre-approved task (called by Scheduler or keepers).
-     * @param user User who scheduled the task.
-     * @param target Contract to call.
-     * @param payload Encoded function call data.
-     * @param value ETH/value to send with the call.
+     * @notice Execute a pre-approved task from Scheduler
      */
     function executeTask(
         address user,
         address target,
-        bytes calldata payload,
+        bytes32 payloadHash,
         uint256 value
-    ) external returns (bool) {
-        bytes32 taskHash = keccak256(abi.encode(target, payload, value));
-        if (!userApprovals[user][taskHash]) revert Unauthorized();
+    ) external payable returns (bool) {
+        Approval memory approval = userApprovals[user][payloadHash];
+        
+        if (approval.deadline == 0) revert UnauthorizedExecuter(user, payloadHash);
+        if (block.timestamp > approval.deadline) revert ExpiredApproval(approval.deadline);
+        if (value > approval.maxValue) revert InvalidValue(approval.maxValue, value);
+        if (msg.value != value) revert InvalidValue(value, msg.value);
 
-        (bool success, ) = target.call{value: value}(payload);
-        if (!success) revert ExecutionFailed();
+        (bool success, bytes memory reason) = target.call{value: value}(
+            abi.encodePacked(payloadHash, user)
+        );
 
-        emit TaskExecuted(user, target, success);
+        if (!success) revert ExecutionFailed(reason);
+
+        emit TaskExecuted(user, target, payloadHash, value, success);
         return success;
+    }
+
+    // ------------------------ Public Functions ------------------------
+    /**
+     * @notice Compute task hash for approval
+     */
+    function getTaskHash(
+        address target,
+        bytes calldata payload,
+        uint256 maxValue
+    ) public pure returns (bytes32) {
+        return keccak256(abi.encode(target, keccak256(payload), maxValue));
     }
 }

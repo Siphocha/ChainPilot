@@ -2,6 +2,7 @@
 pragma solidity ^0.8.19;
 
 /**
+ * @author @0xJonaseb11
  * @title ChainPilot - Template Manager
  * @notice Stores reusable task templates (e.g., multi-send, DAO voting scripts).
  * @dev Templates are gas-optimized for batch operations and can be cloned by users.
@@ -11,6 +12,7 @@ contract TemplateManager {
     error Unauthorized();
     error InvalidTemplate();
     error TemplateLocked();
+    error ExecutionFailed();
 
     // ------------------------ Structs & Events ------------------------
     struct Template {

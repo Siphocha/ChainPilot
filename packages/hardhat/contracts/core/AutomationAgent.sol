@@ -2,6 +2,7 @@
 pragma solidity ^0.8.19;
 
 /**
+* @author @0xJonaseb11
  * @title ChainPilot - Automation Agent
  * @notice Orchestrates tasks, handles gas, and integrates offchain agents/AI.
  * @dev Acts as a middleware between users and core contracts (Scheduler/Executer).
