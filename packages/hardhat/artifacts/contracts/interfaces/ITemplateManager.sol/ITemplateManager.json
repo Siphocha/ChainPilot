@@ -1,0 +1,18 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ITemplateManager",
+  "sourceName": "contracts/interfaces/ITemplateManager.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "deployTemplate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
