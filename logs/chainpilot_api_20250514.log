@@ -1,0 +1,5 @@
+2025-05-14 20:30:15,775 - api - INFO - Dotenv file loaded: True
+2025-05-14 20:30:15,776 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-14 20:30:16,380 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-14 20:30:16,386 - api - INFO - ChainPilot API started.
+2025-05-14 20:31:16,509 - api - INFO - ChainPilot API shutting down.
