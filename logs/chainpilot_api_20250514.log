@@ -3,3 +3,15 @@
 2025-05-14 20:30:16,380 - api - INFO - ChainPilotAgent initialized successfully.
 2025-05-14 20:30:16,386 - api - INFO - ChainPilot API started.
 2025-05-14 20:31:16,509 - api - INFO - ChainPilot API shutting down.
+2025-05-14 22:02:42,887 - api - INFO - Dotenv file loaded: True
+2025-05-14 22:02:42,888 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-14 22:02:43,652 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-14 22:02:43,659 - api - INFO - ChainPilot API started.
+2025-05-14 22:03:32,825 - api - INFO - Received POST request for command: help from IP: 127.0.0.1
+2025-05-14 22:03:32,826 - api - INFO - Command executed successfully.
+2025-05-14 22:03:57,312 - api - INFO - Received POST request for command: send 0.1 tokens to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 from IP: 127.0.0.1
+2025-05-14 22:04:31,740 - api - INFO - Received POST request for command: send_tokens 0.001 to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 from IP: 127.0.0.1
+2025-05-14 22:04:32,112 - api - WARNING - Command failed: Oops! Your wallet doesn’t have enough ETH to complete this. Please top up and try again. from IP: 127.0.0.1
+2025-05-14 22:05:12,609 - api - INFO - Received POST request for command: schedule_transfers 0.001 to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 at 1749590000 from IP: 127.0.0.1
+2025-05-14 22:05:17,068 - api - WARNING - Command failed: Oops! Your wallet doesn’t have enough ETH to complete this. Please top up and try again. from IP: 127.0.0.1
+2025-05-14 22:05:26,884 - api - INFO - ChainPilot API shutting down.
