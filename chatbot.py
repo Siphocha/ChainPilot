@@ -70,31 +70,40 @@ class ChainPilotAgent:
         return action_map.get(action, lambda w, a: {"status": "error", "message": f"Unsupported action: '{action}'. Available actions: {', '.join(action_map.keys())}."})(wallet_provider_dict, args)
 
     def _get_help_message(self) -> str:
-        return ("👋 Hello! I’m ChainPilot, your blockchain assistant on Base mainnet.\n"
-                "🧠 Supported actions:\n"
-                "- check_executor_permissions: Check Executor contract address.\n"
-                "- check_scheduler_permissions: Check Scheduler contract executor address.\n"
-                "- send_tokens <amount> to <address>: Send ETH via Executor (requires executor permissions).\n"
-                "- schedule_transfers <amount> to <address> at <timestamp>: Schedule ETH transfer via Scheduler.\n"
-                "- list_tasks: List scheduled tasks.\n"
-                "- cancel_tasks <task_id>: Cancel a scheduled task.\n"
-                "- help: Show this message.\n"
-                "💬 Use the API endpoints to interact (e.g., POST /command with 'send_tokens 0.1 to 0x...').")
+        return (
+            "👋 Hello! I’m ChainPilot, your blockchain assistant on the Base mainnet.\n\n"
+            "🧠 **Here’s what I can help you with:**\n\n"
+
+            "➡️ `send_tokens <amount> to <address>`\n"
+            "  Send ETH via the Executor contract .\n\n"
+
+            "➡️ `schedule_transfers <amount> to <address> at <timestamp>`\n"
+            "  Schedule ETH transfers via the Scheduler contract.\n\n"
+
+            "➡️ `list_tasks`\n"
+            "  List all your currently scheduled tasks.\n\n"
+
+            "➡️ `cancel_tasks <task_id>`\n"
+            "  Cancel a previously scheduled task using its task ID.\n\n"
+            "➡️ `help`\n"
+            "  Display this help message again.\n\n"
+
+            "📬 To use these, send a command like: `send_tokens 0.1 to 0xYourAddressHere`\n"
+            "⌛ For scheduled transfers, use a Unix timestamp for the time (e.g., 1672531200).\n"
+            "❓ Not sure what to do? Just type `help` anytime."
+        )
 
     def _format_result(self, result: Dict[str, Any], action: str, args: Dict[str, Any]) -> Dict[str, Any]:
         if result.get("status") == "success":
-            # existing formatting...
-            # omitted for brevity
             return result
         else:
             raw_msg = result.get("message", "Unknown error")
-            # Map known errors to friendly messages
             if "insufficient" in raw_msg.lower():
                 friendly = "Oops! Your wallet doesn’t have enough ETH to complete this. Please top up and try again."
             elif "already cancelled" in raw_msg.lower():
                 friendly = "That task has already been cancelled. No further action needed."
             elif "invalid or past 'time'" in raw_msg.lower():
-                friendly = raw_msg  # Let validation message show
+                friendly = raw_msg
             else:
                 friendly = f"Error: {raw_msg}. Please retry or contact support."
             return {"status": "error", "message": friendly}
@@ -144,7 +153,7 @@ class ChainPilotAgent:
 
 if __name__ == "__main__":
     agent = ChainPilotAgent()
-    print("👋 Hello! I’m ChainPilot, your blockchain assistant on Base mainnet.")
+    print(agent._get_help_message())
     while True:
         command = input("> ").strip()
         if command.lower() in ["exit", "quit"]:
