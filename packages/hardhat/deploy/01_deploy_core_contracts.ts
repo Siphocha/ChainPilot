@@ -32,19 +32,19 @@ const deployChainPilot: DeployFunction = async function (hre: HardhatRuntimeEnvi
   console.log(`Executor address set to: ${executor.address}`);
 
   // --- Verification ---
-  if (process.env.VERIFY_CONTRACTS === "true") {
-    console.log("⏳Verifying contracts...");
-    await hre.run("verify:verify", {
-      address: executor.address,
-      constructorArguments: [],
-    });
+  // if (process.env.VERIFY_CONTRACTS === "true") {
+  //   console.log("⏳Verifying contracts...");
+  //   await hre.run("verify:verify", {
+  //     address: executor.address,
+  //     constructorArguments: [],
+  //   });
 
-    await hre.run("verify:verify", {
-      address: scheduler.address,
-      constructorArguments: [executor.address],
-    });
-    console.log("Verification complete");
-  }
+  //   await hre.run("verify:verify", {
+  //     address: scheduler.address,
+  //     constructorArguments: [executor.address],
+  //   });
+  //   console.log("Verification complete");
+  // }
 };
 
 export default deployChainPilot;
