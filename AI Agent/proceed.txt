@@ -1,0 +1,18 @@
+What's next?
+To get started, run the following commands:
+  - cd ChainPilot
+  - poetry install
+  - # Open .env.local and configure your API keys
+  - mv .env.local .env
+  - poetry run python chatbot.py
+
+Learn more
+  - Checkout the docs
+    https://docs.cdp.coinbase.com/agentkit/docs/welcome
+  - Visit the repo
+    http://github.com/coinbase/agentkit
+  - Join the community
+    https://discord.gg/CDP
+
+
+C:\Users\jules\Desktop\AI Agent>                                        
