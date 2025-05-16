@@ -6,21 +6,21 @@ const deployChainPilot: DeployFunction = async function (hre: HardhatRuntimeEnvi
   const { deploy, get } = hre.deployments;
 
   // --- Deploying Executor ---
-  const executor = await deploy("ChainPilotExecutor", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-    waitConfirmations: 1,
-  });
+  // const executor = await deploy("ChainPilotExecutor", {
+  //   from: deployer,
+  //   args: [],
+  //   log: true,
+  //   autoMine: true,
+  //   waitConfirmations: 1,
+  // });
 
-  console.log(`Executor deployed at: ${executor.address}`);
-  console.log("========////////////////////////////////////////////////////////////====");
+  // console.log(`Executor deployed at: ${executor.address}`);
+  // console.log("========////////////////////////////////////////////////////////////====");
 
   // --- Deploying Scheduler ---
   const scheduler = await deploy("ChainPilotScheduler", {
     from: deployer,
-    args: [executor.address],
+    args: ["0x3175F8bDBEE3FaE7e3369eB352BADcd4237161AC"],
     log: true,
     autoMine: true,
     waitConfirmations: 1,
@@ -29,7 +29,7 @@ const deployChainPilot: DeployFunction = async function (hre: HardhatRuntimeEnvi
   console.log(`Scheduler deployed at: ${scheduler.address}`);
   console.log("========////////////////////////////////////////////////////////////====\n");
 
-  console.log(`Executor address set to: ${executor.address}`);
+  console.log(`Scheduler address set to: ${scheduler.address}`);
 
   // --- Verification ---
   // if (process.env.VERIFY_CONTRACTS === "true") {
