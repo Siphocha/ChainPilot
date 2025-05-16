@@ -11,7 +11,6 @@ You look no further than ethereum. The cryptocurrency actually trying to be a re
 Look no further than the Ethereum mainnet. A network actually dedicated to real time monetary transactions.
 It looks good, it smells good, it feels good...It's all good! Right!?
 
-[Vitalik Dancing](../../../../Downloads/Download.mp4)
-
+![Vitalik Dancing](https://www.tiktok.com/@wavroot/video/7372743896364764422?is_from_webapp=1&sender_device=pc)
 
 This is the BaseMountain ChainPilot REPO!!!
