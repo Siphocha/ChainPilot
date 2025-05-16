@@ -12,7 +12,6 @@ Look no further than the Ethereum mainnet. A network actually dedicated to real 
 It looks good, it smells good, it feels good...It's all good! Right!?
 
 [![Vitalik Dancing](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2BDQY_xHxSZsDLjDR5B4y0VxmpSR4Mn7TOg&s)](https://www.tiktok.com/@wavroot/video/7372743896364764422?is_from_webapp=1&sender_device=pc)
-
 It's not good. You are using ETH from the Base Network. The most innovative blockchain network to-date. 
 They're ready to bring the next 1 billion+ users onto the chian. But...you want it more intuitive.
 You want easier transactions on the chain.
