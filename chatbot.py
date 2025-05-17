@@ -1,9 +1,9 @@
 import sys
 import os
 import logging
+import time
 from typing import Any, Dict, Optional
 from datetime import datetime
-import pytz
 from config import CONTRACT_ADDRESSES
 from utils import MockContractInterface, get_logger
 from actions.chainpilot_actions import ChainPilotActions
@@ -27,7 +27,7 @@ class ChainPilotAgent:
         """Initialize the ChainPilotAgent with action handlers and timezone settings."""
         self.actions = ChainPilotActions()
         self.mock = MockContractInterface()
-        self.cat_tz = pytz.timezone("Africa/Kigali")  # CAT (UTC+2)
+        #self.cat_tz = pytz.timezone("Africa/Kigali")  # CAT (UTC+2)
 
     def _map_action_args(self, parsed_command: Dict[str, Any]) -> Dict[str, Any]:
         """Map parsed command arguments to action-specific parameters.
@@ -152,7 +152,7 @@ class ChainPilotAgent:
                              f"Transaction hash: {result.get('tx_hash', 'N/A')}"
                 }
             elif action == "schedule_transfer":
-                utc_dt = datetime.fromtimestamp(args["time"], tz=pytz.UTC)
+                utc_dt = datetime.fromtimestamp(args["time"],)
                 cat_dt = utc_dt.astimezone(self.cat_tz)
                 human_time = cat_dt.strftime("%Y-%m-%d %H:%M:%S %Z")
                 return {
@@ -174,7 +174,7 @@ class ChainPilotAgent:
                     return {"status": "success", "message": "No scheduled tasks found."}
                 lines = []
                 for job in jobs:
-                    utc_dt = datetime.fromtimestamp(job["timestamp"], tz=pytz.UTC)
+                    utc_dt = datetime.fromtimestamp(job["timestamp"])
                     cat_dt = utc_dt.astimezone(self.cat_tz)
                     human_time = cat_dt.strftime("%Y-%m-%d %H:%M:%S %Z")
                     lines.append(f"- {job.get('amount', 'unknown')} tokens → {job.get('to_address', 'unknown')} @ {human_time} "
