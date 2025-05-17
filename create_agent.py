@@ -1,72 +1,57 @@
 from coinbase_agentkit_openai_agents_sdk import get_openai_agents_sdk_tools
-from agents.agent import Agent
+from agentkit import Agent
 from prepare_agentkit import prepare_agentkit
-
-"""
-Agent Framework Integration
-
-This file bridges your AgentKit configuration with your chosen AI framework 
-(Langchain or OpenAI Assistants). It handles:
-
-1. LLM Configuration:
-   - Select and configure your Language Model
-
-2. Tool Integration:
-   - Convert AgentKit tools to framework-compatible format
-   - Configure tool availability and permissions
-
-3. Agent Creation:
-   - Initialize the agent with tools and instructions
-   - Set up memory and conversation management
-
-The create_agent() function returns a configured agent ready for use in your application.
-"""
+from actions.chainpilot_actions import TOOLS
 
 AGENT_INSTRUCTIONS = (
-    "You are a helpful AI agent with built-in financial capabilities through your secure digital wallet. "
-    "You're designed to help users understand and explore what an AI agent can do with payment capabilities.\n\n"
+    "You are ChainPilot, a blockchain automation AI agent on the Base network. You can manage a secure digital wallet, "
+    "send and receive tokens, schedule token transfers, execute smart contract actions, create ERC-20 tokens, deploy and "
+    "mint ERC-721 NFTs, and register Basenames for identity management. Your wallet supports Base Sepolia (testnet) and "
+    "Base Mainnet, with testnet faucet access for ETH/USDC. Users can switch networks via the .env file.\n\n"
     
-    "Key things to know about your wallet:\n"
-    "- You have one wallet per network (like having different bank accounts in different countries)\n"
-    "- When you are on Base Sepolia (a test network), you can get free test tokens (ETH/USDC) using the faucet command\n"
-    "- Users can change your network by updating NETWORK_ID in their .env file\n\n"
+    "Core capabilities:\n"
+    "- Check wallet balances and request testnet tokens\n"
+    "- Send tokens and schedule transfers\n"
+    "- Execute actions via ChainPilotExecutor\n"
+    "- Create and manage ERC-20 tokens and NFTs\n"
+    "- Register Basenames (e.g., myname.basetest.eth)\n\n"
     
-    "Your core capabilities:\n"
-    "- Check wallet balance\n"
-    "- Send and receive tokens\n"
-    "- Make secure financial decisions\n\n"
-    
-    "Common questions you should be ready to explain:\n"
-    "- What a test network is and why it's useful for development\n"
-    "- How to get test tokens using the faucet\n"
-    "- How to switch networks when they're ready\n"
-    "- The value of having an AI agent with payment capabilities\n\n"
-    
-    "Keep your responses friendly and educational. If users encounter technical terms, explain them simply. "
-    "If there's a 5XX error, explain that the service is temporarily unavailable and to try again later. "
-    "If asked to do something beyond your current capabilities, explain what you can do and suggest they check "
-    "docs.cdp.coinbase.com for implementing additional features."
-    "You can also explain that developers can create any action they want and add them to your toolset.\n\n"
-    
-    "Remember: You're not just a crypto tool - you're an AI agent with the ability to make and receive payments, "
-    "which opens up new possibilities for automation and interaction."
+    "Explain technical terms simply (e.g., testnet as a sandbox for testing). For 5XX errors, suggest retrying later. "
+    "If a user requests an unsupported action, explain your capabilities and refer them to docs.cdp.coinbase.com for "
+    "custom implementations. You're an AI with payment and automation capabilities, enabling unique blockchain interactions."
 )
 
 def create_agent():
-    """Initialize the agent with tools from AgentKit."""
+    """Initialize the agent with tools from AgentKit and custom actions."""
     # Get AgentKit instance
     agentkit = prepare_agentkit()
-
     
     # Get OpenAI Agents SDK tools
-    tools = get_openai_agents_sdk_tools(agentkit)
+    agentkit_tools = get_openai_agents_sdk_tools(agentkit)
+    
+    # Combine AgentKit tools with custom action tools
+    all_tools = agentkit_tools + TOOLS
 
-    # Create Agent using the OpenAI Agents SDK
+    # Create Agent
     agent = Agent(
-        name="CDP Smart Wallet Chatbot",
+        name="ChainPilot",
         instructions=AGENT_INSTRUCTIONS,
-        tools=tools
+        tools=all_tools
     )
 
     return agent, {}  # Return empty config to match Langchain interface
-     
+
+# Save agent configuration
+agent = Agent(
+    name="ChainPilot",
+    description="An AI agent to help users interact with blockchain smart contracts and manage tokens/NFTs.",
+    llm_provider="openai",
+    model="gpt-3.5-turbo",
+    tools=["stake_tool", "transfer_tool", "unstake_tool", "check_portfolio_tool", "create_token", "deploy_nft", "mint_nft", "register_basename"],
+    prompt=(
+        "You are ChainPilot, an AI assistant for blockchain interactions. Understand commands like "
+        "'Stake 50 USDC weekly', 'Create token MyToken MTK 1000000', or 'Register basename myname' and respond with "
+        "structured JSON actions."
+    )
+)
+agent.save("chainpilot_agent.yaml")

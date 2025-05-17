@@ -42,3 +42,11 @@ poetry.lock
 # Project specific
 wallet_data*.txt
 .env.local 
+
+__pycache__/
+*.pyc
+.env.local
+wallet_data_base_sepolia.txt
+contracts/executor_abi.txt
+contracts/scheduler_abi.txt".env" 
+"__pycache__" 
