@@ -1,0 +1,359 @@
+{
+  "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "reason",
+          "type": "bytes"
+        }
+      ],
+      "name": "ExecutionFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExpiredApproval",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "expected",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "actual",
+          "type": "uint256"
+        }
+      ],
+      "name": "InvalidValue",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "taskHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "UnauthorizedExecuter",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "taskHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "maxValue",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "TaskApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "taskHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "name": "TaskExecuted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "approveTask",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "executeTask",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTaskHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "userApprovals",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "maxValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x9b573cd0ad37cd85a286ead438bc8df780a8b76f33c073b5e4c919a78f80cedd",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "transactionIndex": 0,
+    "gasUsed": "402482",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x6345089fc4f920b82513399a270150db174f00081829aecfe04733d6fc27494a",
+    "transactionHash": "0x9b573cd0ad37cd85a286ead438bc8df780a8b76f33c073b5e4c919a78f80cedd",
+    "logs": [],
+    "blockNumber": 5,
+    "cumulativeGasUsed": "402482",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "15884642f0ce450738e5f97a660624ab",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"reason\",\"type\":\"bytes\"}],\"name\":\"ExecutionFailed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"ExpiredApproval\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"expected\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"actual\",\"type\":\"uint256\"}],\"name\":\"InvalidValue\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"taskHash\",\"type\":\"bytes32\"}],\"name\":\"UnauthorizedExecuter\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"maxValue\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"TaskApproved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"name\":\"TaskExecuted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"payload\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"maxValue\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"approveTask\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"payloadHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"executeTask\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"payload\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"maxValue\",\"type\":\"uint256\"}],\"name\":\"getTaskHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"userApprovals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"maxValue\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"@0xJonaseb11\",\"details\":\"Uses EIP-712 signatures for approvals and optimized for Base network\",\"kind\":\"dev\",\"methods\":{},\"title\":\"ChainPilotExecutor Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"approveTask(address,bytes,uint256,uint256)\":{\"notice\":\"Pre-approve a task with deadline\"},\"executeTask(address,address,bytes32,uint256)\":{\"notice\":\"Execute a pre-approved task from Scheduler\"},\"getTaskHash(address,bytes,uint256)\":{\"notice\":\"Compute task hash for approval\"}},\"notice\":\"Securely executes pre-approved tasks from Scheduler\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/core/Executor.sol\":\"ChainPilotExecutor\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/core/Executor.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.19;\\n\\n/**\\n * @author @0xJonaseb11\\n * @title ChainPilotExecutor Contract\\n * @notice Securely executes pre-approved tasks from Scheduler\\n * @dev Uses EIP-712 signatures for approvals and optimized for Base network\\n */\\n\\n///////////////////////////////////////////////////\\n////////   REMEMBER TO ASK SIPHO IF WE NEED AA ////\\n////////.  SO I CAN SETUP EntryPoint.sol ////////\\n////////////////////////////////////////////////\\n\\ncontract ChainPilotExecutor {\\n\\n    // ------------------------ Custom Errors ------------------------\\n    error UnauthorizedExecuter(address user, bytes32 taskHash);\\n    error ExecutionFailed(bytes reason);\\n    error InvalidValue(uint256 expected, uint256 actual);\\n    error ExpiredApproval(uint256 deadline);\\n\\n    // ------------------------ Events ------------------------\\n    event TaskApproved(\\n        address indexed user,\\n        bytes32 indexed taskHash,\\n        uint256 maxValue,\\n        uint256 deadline\\n    );\\n    event TaskExecuted(\\n        address indexed user,\\n        address indexed target,\\n        bytes32 indexed taskHash,\\n        uint256 value,\\n        bool success\\n    );\\n\\n    // ------------------------ Storage ------------------------\\n    struct Approval {\\n        uint256 maxValue;\\n        uint256 deadline;\\n    }\\n\\n    mapping(address => mapping(bytes32 => Approval)) public userApprovals;\\n\\n    // ------------------------ External Functions ------------------------\\n    /**\\n     * @notice Pre-approve a task with deadline\\n     */\\n    function approveTask(\\n        address target,\\n        bytes calldata payload,\\n        uint256 maxValue,\\n        uint256 deadline\\n    ) external {\\n        bytes32 taskHash = getTaskHash(target, payload, maxValue);\\n        userApprovals[msg.sender][taskHash] = Approval(maxValue, deadline);\\n        emit TaskApproved(msg.sender, taskHash, maxValue, deadline);\\n    }\\n\\n    /**\\n     * @notice Execute a pre-approved task from Scheduler\\n     */\\n    function executeTask(\\n        address user,\\n        address target,\\n        bytes32 payloadHash,\\n        uint256 value\\n    ) external payable returns (bool) {\\n        Approval memory approval = userApprovals[user][payloadHash];\\n        \\n        if (approval.deadline == 0) revert UnauthorizedExecuter(user, payloadHash);\\n        if (block.timestamp > approval.deadline) revert ExpiredApproval(approval.deadline);\\n        if (value > approval.maxValue) revert InvalidValue(approval.maxValue, value);\\n        if (msg.value != value) revert InvalidValue(value, msg.value);\\n\\n        (bool success, bytes memory reason) = target.call{value: value}(\\n            abi.encodePacked(payloadHash, user)\\n        );\\n\\n        if (!success) revert ExecutionFailed(reason);\\n\\n        emit TaskExecuted(user, target, payloadHash, value, success);\\n        return success;\\n    }\\n\\n    // ------------------------ Public Functions ------------------------\\n    /**\\n     * @notice Compute task hash for approval\\n     */\\n    function getTaskHash(\\n        address target,\\n        bytes calldata payload,\\n        uint256 maxValue\\n    ) public pure returns (bytes32) {\\n        return keccak256(abi.encode(target, keccak256(payload), maxValue));\\n    }\\n}\",\"keccak256\":\"0x19288f349ee9752a9909bb286328befe3060eb39e1a1848d5fc47d866ef19f15\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610651806100206000396000f3fe60806040526004361061003f5760003560e01c80636655370c14610044578063867d072b1461009a578063a31e8348146100bc578063c5a1f9d8146100df575b600080fd5b34801561005057600080fd5b5061008061005f366004610424565b60006020818152928152604080822090935290815220805460019091015482565b604080519283526020830191909152015b60405180910390f35b3480156100a657600080fd5b506100ba6100b5366004610497565b61010d565b005b6100cf6100ca3660046104fc565b610197565b6040519015158152602001610091565b3480156100eb57600080fd5b506100ff6100fa36600461053e565b6103ab565b604051908152602001610091565b600061011b868686866103ab565b604080518082018252858152602080820186815233600081815280845285812087825284528590209351845590516001909301929092558251878152908101869052929350839290917f48c893cb02081fc6b4de55c729b97289cd9247ec524f10b1be9f1cfe998b6a5e910160405180910390a3505050505050565b6001600160a01b03841660009081526020818152604080832085845282528083208151808301909252805482526001015491810182905290820361020557604051630f918b9960e41b81526001600160a01b0387166004820152602481018590526044015b60405180910390fd5b806020015142111561023257806020015160405163d9ea6c7560e01b81526004016101fc91815260200190565b805183111561026157805160405163de9b74a160e01b81526004810191909152602481018490526044016101fc565b82341461028a5760405163de9b74a160e01b8152600481018490523460248201526044016101fc565b600080866001600160a01b031685878a6040516020016102c692919091825260601b6bffffffffffffffffffffffff1916602082015260340190565b60408051601f19818403018152908290526102e0916105bc565b60006040518083038185875af1925050503d806000811461031d576040519150601f19603f3d011682016040523d82523d6000602084013e610322565b606091505b50915091508161034757806040516315fcd67560e01b81526004016101fc91906105d8565b85876001600160a01b0316896001600160a01b03167fdb99ff705e9a3913bdeb022b48c8d90544719458e56b839c685c4fb13fc3133188866040516103989291909182521515602082015260400190565b60405180910390a4509695505050505050565b60008484846040516103be92919061060b565b604080519182900382206001600160a01b03909316602083015281019190915260608101839052608001604051602081830303815290604052805190602001209050949350505050565b80356001600160a01b038116811461041f57600080fd5b919050565b6000806040838503121561043757600080fd5b61044083610408565b946020939093013593505050565b60008083601f84011261046057600080fd5b50813567ffffffffffffffff81111561047857600080fd5b60208301915083602082850101111561049057600080fd5b9250929050565b6000806000806000608086880312156104af57600080fd5b6104b886610408565b9450602086013567ffffffffffffffff8111156104d457600080fd5b6104e08882890161044e565b9699909850959660408101359660609091013595509350505050565b6000806000806080858703121561051257600080fd5b61051b85610408565b935061052960208601610408565b93969395505050506040820135916060013590565b6000806000806060858703121561055457600080fd5b61055d85610408565b9350602085013567ffffffffffffffff81111561057957600080fd5b6105858782880161044e565b9598909750949560400135949350505050565b60005b838110156105b357818101518382015260200161059b565b50506000910152565b600082516105ce818460208701610598565b9190910192915050565b60208152600082518060208401526105f7816040850160208701610598565b601f01601f19169190910160400192915050565b818382376000910190815291905056fea2646970667358221220fd76496a08a89e37b40b6dcd1cdfa884f0cdb19fe2c3b92bc98f9aeb4f7496cd64736f6c63430008140033",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c80636655370c14610044578063867d072b1461009a578063a31e8348146100bc578063c5a1f9d8146100df575b600080fd5b34801561005057600080fd5b5061008061005f366004610424565b60006020818152928152604080822090935290815220805460019091015482565b604080519283526020830191909152015b60405180910390f35b3480156100a657600080fd5b506100ba6100b5366004610497565b61010d565b005b6100cf6100ca3660046104fc565b610197565b6040519015158152602001610091565b3480156100eb57600080fd5b506100ff6100fa36600461053e565b6103ab565b604051908152602001610091565b600061011b868686866103ab565b604080518082018252858152602080820186815233600081815280845285812087825284528590209351845590516001909301929092558251878152908101869052929350839290917f48c893cb02081fc6b4de55c729b97289cd9247ec524f10b1be9f1cfe998b6a5e910160405180910390a3505050505050565b6001600160a01b03841660009081526020818152604080832085845282528083208151808301909252805482526001015491810182905290820361020557604051630f918b9960e41b81526001600160a01b0387166004820152602481018590526044015b60405180910390fd5b806020015142111561023257806020015160405163d9ea6c7560e01b81526004016101fc91815260200190565b805183111561026157805160405163de9b74a160e01b81526004810191909152602481018490526044016101fc565b82341461028a5760405163de9b74a160e01b8152600481018490523460248201526044016101fc565b600080866001600160a01b031685878a6040516020016102c692919091825260601b6bffffffffffffffffffffffff1916602082015260340190565b60408051601f19818403018152908290526102e0916105bc565b60006040518083038185875af1925050503d806000811461031d576040519150601f19603f3d011682016040523d82523d6000602084013e610322565b606091505b50915091508161034757806040516315fcd67560e01b81526004016101fc91906105d8565b85876001600160a01b0316896001600160a01b03167fdb99ff705e9a3913bdeb022b48c8d90544719458e56b839c685c4fb13fc3133188866040516103989291909182521515602082015260400190565b60405180910390a4509695505050505050565b60008484846040516103be92919061060b565b604080519182900382206001600160a01b03909316602083015281019190915260608101839052608001604051602081830303815290604052805190602001209050949350505050565b80356001600160a01b038116811461041f57600080fd5b919050565b6000806040838503121561043757600080fd5b61044083610408565b946020939093013593505050565b60008083601f84011261046057600080fd5b50813567ffffffffffffffff81111561047857600080fd5b60208301915083602082850101111561049057600080fd5b9250929050565b6000806000806000608086880312156104af57600080fd5b6104b886610408565b9450602086013567ffffffffffffffff8111156104d457600080fd5b6104e08882890161044e565b9699909850959660408101359660609091013595509350505050565b6000806000806080858703121561051257600080fd5b61051b85610408565b935061052960208601610408565b93969395505050506040820135916060013590565b6000806000806060858703121561055457600080fd5b61055d85610408565b9350602085013567ffffffffffffffff81111561057957600080fd5b6105858782880161044e565b9598909750949560400135949350505050565b60005b838110156105b357818101518382015260200161059b565b50506000910152565b600082516105ce818460208701610598565b9190910192915050565b60208152600082518060208401526105f7816040850160208701610598565b601f01601f19169190910160400192915050565b818382376000910190815291905056fea2646970667358221220fd76496a08a89e37b40b6dcd1cdfa884f0cdb19fe2c3b92bc98f9aeb4f7496cd64736f6c63430008140033",
+  "devdoc": {
+    "author": "@0xJonaseb11",
+    "details": "Uses EIP-712 signatures for approvals and optimized for Base network",
+    "kind": "dev",
+    "methods": {},
+    "title": "ChainPilotExecutor Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "approveTask(address,bytes,uint256,uint256)": {
+        "notice": "Pre-approve a task with deadline"
+      },
+      "executeTask(address,address,bytes32,uint256)": {
+        "notice": "Execute a pre-approved task from Scheduler"
+      },
+      "getTaskHash(address,bytes,uint256)": {
+        "notice": "Compute task hash for approval"
+      }
+    },
+    "notice": "Securely executes pre-approved tasks from Scheduler",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 339,
+        "contract": "contracts/core/Executor.sol:ChainPilotExecutor",
+        "label": "userApprovals",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_mapping(t_bytes32,t_struct(Approval)332_storage))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_mapping(t_bytes32,t_struct(Approval)332_storage))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(bytes32 => struct ChainPilotExecutor.Approval))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_struct(Approval)332_storage)"
+      },
+      "t_mapping(t_bytes32,t_struct(Approval)332_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct ChainPilotExecutor.Approval)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Approval)332_storage"
+      },
+      "t_struct(Approval)332_storage": {
+        "encoding": "inplace",
+        "label": "struct ChainPilotExecutor.Approval",
+        "members": [
+          {
+            "astId": 329,
+            "contract": "contracts/core/Executor.sol:ChainPilotExecutor",
+            "label": "maxValue",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 331,
+            "contract": "contracts/core/Executor.sol:ChainPilotExecutor",
+            "label": "deadline",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
