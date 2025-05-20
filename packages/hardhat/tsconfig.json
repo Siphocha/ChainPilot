@@ -8,7 +8,7 @@
     "outDir": "./dist",
     "rootDir": "./",
     "typeRoots": ["./node_modules/@types", "./node_modules"],
-    "types": ["node", "qrcode", "trusted-types"]
+    "types": ["node"]
   },
   "include": ["./scripts", "./test", "./typechain"],
   "files": ["./hardhat.config.ts"]
