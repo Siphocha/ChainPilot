@@ -4,4 +4,5 @@ python-dotenv==1.1.0
 web3==7.10.0
 requests==2.32.3
 pydantic==2.10.6
-openai==1.76.0  # Version from your original requirements.txt
+openai==1.76.0
+pytz==2024.2
