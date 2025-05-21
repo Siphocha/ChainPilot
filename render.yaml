@@ -1,9 +1,12 @@
 services:
   - type: web
-    name: chainpilot-api
+    name: chainpilot
     env: python
+    plan: free
+    repo: https://github.com/Siphocha/ChainPilot
+    autoDeploy: true
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT --workers 2
     envVars:
       - key: NETWORK_RPC_URL
         value: https://mainnet.base.org
@@ -15,6 +18,9 @@ services:
         value: 0x3175F8bDBEE3FaE7e3369eB352BADcd4237161AC
       - key: CONTRACT_SCHEDULER_ADDRESS
         value: 0x1dc4052FDEc1CC197a280B19a657704bc1910BBf
-      - key: CONTRACT_TOKEN_ADDRESS
-        value: 0x_MAINNET_TOKEN_ADDRESS_
-    # Add WALLET_PRIVATE_KEY as a secret in Render dashboard
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: WALLET_PRIVATE_KEY
+        fromService:
+          type: secret
+          name: WALLET_PRIVATE_KEY

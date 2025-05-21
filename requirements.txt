@@ -147,3 +147,5 @@ yarl==1.20.0
 zipp==3.21.0
 zmq==0.0.0
 logging.handlers==1.0.0
+fastapi==0.111.0
+uvicorn==0.30.1
