@@ -6,16 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository with Submodules
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          submodules: recursive # Ensure submodules are checked out
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: AI Agent/ChainPilot/yarn.lock
       - name: Install Dependencies
-        working-directory: AI Agent/ChainPilot # Run in the submodule directory
+        working-directory: AI Agent/ChainPilot
         run: yarn install
       - name: Build
         working-directory: AI Agent/ChainPilot
