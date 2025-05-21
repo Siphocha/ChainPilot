@@ -91,8 +91,6 @@ class CommandResponse(BaseModel):
 def initialize_agent(max_retries=3):
     for attempt in range(max_retries):
         try:
-            # Initialize ChainPilotAgent without passing arguments
-            # Rely on environment variables set above
             agent = ChainPilotAgent()
             logger.info("ChainPilotAgent initialized successfully.")
             return agent
@@ -130,6 +128,11 @@ async def root():
 async def health():
     return {"status": "healthy"}
 
+@app.options("/command")
+async def options_command():
+    logger.info("Received OPTIONS request for /command")
+    return Response(status_code=200)
+
 @app.post(
     "/command",
     summary="Execute a ChainPilot command",
@@ -138,7 +141,7 @@ async def health():
 )
 async def command(request: CommandRequest, req: Request):
     client_ip = req.client.host
-    logger.info(f"Received command: {request.command} from IP: {client_ip}")
+    logger.info(f"Received {req.method} request for command: {request.command} from IP: {client_ip}")
     try:
         response = agent.process_command(request.command, confirm=request.confirm)
         if response.get("status") == "error":
