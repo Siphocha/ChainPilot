@@ -17,9 +17,15 @@ logger = logging.getLogger(__name__)
 
 class ChainPilotAgent:
     def __init__(self):
-        # Prompt for wallet address and private key
-        wallet_address = input("Please enter the wallet address (e.g., 0x...): ").strip()
-        private_key = input("Please enter the private key: ").strip()
+        # Use environment variables instead of input()
+        wallet_address = os.getenv("WALLET_ADDRESS")
+        private_key = os.getenv("WALLET_PRIVATE_KEY")
+
+        # Validate environment variables
+        if not wallet_address:
+            raise ValueError("WALLET_ADDRESS environment variable is not set")
+        if not private_key:
+            raise ValueError("WALLET_PRIVATE_KEY environment variable is not set")
 
         # Validate input (basic check)
         if not wallet_address.startswith("0x") or len(wallet_address) != 42:
