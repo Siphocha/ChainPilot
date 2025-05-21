@@ -58,5 +58,19 @@
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=20.18.3"
-  }
+  },
+  "description": "🛬🛬🛬🛬🛬🛬🛬 WE'R TAKING FLIGGGHTTTTT!\r URL: https://chain-pilot-drab.vercel.app/",
+  "main": ".lintstagedrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siphocha/ChainPilot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Siphocha/ChainPilot/issues"
+  },
+  "homepage": "https://github.com/Siphocha/ChainPilot#readme"
 }

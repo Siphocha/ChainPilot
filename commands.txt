@@ -1,0 +1,32 @@
+1.uvicorn api:app --host 0.0.0.0 --port 8000
+
+2.cd C:\Users\jules\Desktop\ChainPilot\packages\hardhat
+npx hardhat run scripts/mint.js --network localhost
+
+npx hardhat node
+
+npx hardhat console  --network localhost
+
+set PYTHONPATH=C:\Users\jules\Desktop\ChainPilot\AI Agent\ChainPilot\actions;%PYTHONPATH%
+
+uvicorn api:app --host 0.0.0.0 --port 8000
+
+localhost:8000/docs
+
+
+
+
+send 0.1 tokens to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+
+schedule transfer 0.1 USDC to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 at 1749588000
+cancel
+
+
+
+help
+check_executor_permissions
+check_scheduler_permissions
+send_tokens 0.001 to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+schedule_transfers 0.001 to 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 at 1749590000
+list_tasks
+cancel_tasks 0

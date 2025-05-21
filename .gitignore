@@ -1,23 +1,53 @@
-# dependencies
-node_modules
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# Virtual Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# eslint
-.eslintcache
-
-# misc
-.DS_Store
+# Poetry
+poetry.lock
 
 # IDE
-.vscode
-.idea
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
 
-# cli
-dist
+# Project specific
+wallet_data*.txt
+.env.local 
+
+__pycache__/
+*.pyc
+.env.local
+"__pycache__" 
+
+node_modules/
+
+
