@@ -4,106 +4,60 @@ from datetime import datetime, timedelta
 import pytz
 
 def parse_command(command: str) -> Dict[str, Any]:
-    """Parse a natural language command into structured data.
-
-    Args:
-        command (str): The user command to parse.
-
-    Returns:
-        Dict[str, Any]: Parsed command data with action and arguments.
-    """
     command_lower = command.lower().strip()
+    print(f"Debug: Command received: '{command_lower}'")  # Debug log
     result: Dict[str, Any] = {}
 
-    # Address pattern (simplified for 0x... format)
     address_pattern = r'0x[a-fA-F0-9]{40}'
-    # Amount pattern (e.g., 0.1, 2)
     amount_pattern = r'\d*\.?\d+'
-    # Timestamp or time reference (e.g., 1735689600, tomorrow, now)
     time_pattern = r'\d{10}|tomorrow|now'
 
-    # 1. Parse 'send' or 'transfer' commands
-    if "send" in command_lower or "transfer" in command_lower:
-        result["action"] = "transfer"
-        # Extract amount
-        amount_match = re.search(amount_pattern, command_lower)
-        if amount_match:
-            result["amount"] = float(amount_match.group())
-        # Extract address
-        address_match = re.search(address_pattern, command_lower)
-        if address_match:
-            result["to"] = address_match.group()
-
-    # 2. Parse 'schedule transfer' commands
-    elif "schedule transfer" in command_lower:
-        result["action"] = "scheduled_transfer"
-        amount_match = re.search(amount_pattern, command_lower)
-        if amount_match:
-            result["amount"] = float(amount_match.group())
-        address_match = re.search(address_pattern, command_lower)
-        if address_match:
-            result["to"] = address_match.group()
-        time_match = re.search(time_pattern, command_lower)
-        if time_match:
-            time_str = time_match.group()
+    # Command matching with specific patterns
+    if command_lower == "check executor permissions":
+        result["action"] = "check_executor_permissions"
+    elif command_lower == "check scheduler permissions":
+        result["action"] = "check_scheduler_permissions"
+    elif command_lower in ["list tasks", "list_tasks"]:  # Handle both forms
+        result["action"] = "list_tasks"
+    elif command_lower in ["help", "hi", "hello"]:
+        result["action"] = "help"
+    elif re.match(r"^cancel_tasks\s+(?:task\s*)?(\d+)$", command_lower):
+        task_id_match = re.search(r"cancel_tasks\s+(?:task\s*)?(\d+)", command_lower)
+        if task_id_match:
+            result["action"] = "cancel_tasks"
+            result["task_id"] = int(task_id_match.group(1))
+            if "yes" in command_lower:
+                result["confirm"] = True
+    elif re.match(r"^send_tokens\s+" + amount_pattern + r"\s+to\s+" + address_pattern + r"(?:\s+yes)?$", command_lower):
+        match = re.match(r"^send_tokens\s(" + amount_pattern + r")\s+to\s(" + address_pattern + r")(?:\s+yes)?$", command_lower)
+        if match:
+            result["action"] = "send_tokens"
+            result["amount"] = float(match.group(1))
+            result["to"] = match.group(2)
+            if "yes" in command_lower:
+                result["confirm"] = True
+    elif re.match(r"^schedule_transfers\s+" + amount_pattern + r"\s+to\s+" + address_pattern + r"\s+at\s+" + time_pattern + r"(?:\s+yes)?$", command_lower):
+        match = re.match(r"^schedule_transfers\s(" + amount_pattern + r")\s+to\s(" + address_pattern + r")\s+at\s(" + time_pattern + r")(?:\s+yes)?$", command_lower)
+        if match:
+            result["action"] = "schedule_transfers"
+            result["amount"] = float(match.group(1))
+            result["to"] = match.group(2)
+            time_str = match.group(3)
+            cat_tz = pytz.timezone("Africa/Kigali")
+            current_time = datetime.now(cat_tz)
             if time_str == "tomorrow":
-                cat_tz = pytz.timezone("Africa/Kigali")
-                tomorrow = (datetime.now(cat_tz) + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+                tomorrow = current_time + timedelta(days=1)
+                tomorrow = tomorrow.replace(hour=0, minute=0, second=0, microsecond=0)
                 result["time"] = int(tomorrow.timestamp())
             elif time_str == "now":
-                result["time"] = int(datetime.now(pytz.UTC).timestamp())
+                result["time"] = int(current_time.timestamp())
             else:
                 result["time"] = int(time_str)
-
-    # 3. Parse 'cancel' commands
-    elif "cancel" in command_lower:
-        result["action"] = "cancel"
-        if "task" in command_lower:
-            try:
-                task_id = int(command_lower.split("task")[1].strip())
-                result["task_id"] = task_id
-            except (IndexError, ValueError):
-                pass  # Handled in process_command
-
-    # 4. Parse 'stake' commands
-    elif "stake" in command_lower:
-        result["action"] = "stake"
-        amount_match = re.search(amount_pattern, command_lower)
-        if amount_match:
-            result["amount"] = float(amount_match.group())
-        # Extract token (e.g., ETH, USDC)
-        token_match = re.search(r'(eth|usdc)', command_lower)
-        if token_match:
-            result["token"] = token_match.group().upper()
-        # Extract schedule (e.g., weekly)
-        schedule_match = re.search(r'(weekly|monthly|daily)', command_lower)
-        if schedule_match:
-            result["schedule"] = schedule_match.group()
-
-    # 5. Parse 'unstake' commands
-    elif "unstake" in command_lower:
-        result["action"] = "unstake"
-        amount_match = re.search(amount_pattern, command_lower)
-        if amount_match:
-            result["amount"] = float(amount_match.group())
-        token_match = re.search(r'(eth|usdc)', command_lower)
-        if token_match:
-            result["token"] = token_match.group().upper()
-        timing_match = re.search(r'(now|today)', command_lower)
-        if timing_match:
-            result["timing"] = timing_match.group()
-
-    # 6. Parse 'check portfolio' commands
-    elif "check portfolio" in command_lower:
-        result["action"] = "check_portfolio"
-        details_match = re.search(r'(summary|all|details)', command_lower)
-        if details_match:
-            result["details"] = details_match.group()
-
-    # 7. Parse 'show staking rewards' commands
-    elif "show staking rewards" in command_lower:
-        result["action"] = "show_staking_rewards"
+            if "yes" in command_lower:
+                result["confirm"] = True
 
     if not result:
         print(f"Failed to parse command: {command}")
+    else:
+        print(f"Debug: Parsed result: {result}")
     return result

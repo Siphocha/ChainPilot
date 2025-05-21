@@ -1,0 +1,349 @@
+2025-05-20 22:24:25,606 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 22:24:25,616 - api - INFO - ChainPilot API started.
+2025-05-20 22:24:42,284 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 22:33:42,261 - api - INFO - ChainPilot API shutting down.
+2025-05-20 22:34:13,038 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 22:34:13,045 - api - INFO - ChainPilot API started.
+2025-05-20 22:34:43,634 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 22:35:17,447 - api - INFO - ChainPilot API shutting down.
+2025-05-20 22:56:52,717 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 22:56:52,725 - api - INFO - ChainPilot API started.
+2025-05-20 22:57:18,552 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 22:57:27,521 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 23:27:51,220 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 23:27:51,227 - api - INFO - ChainPilot API started.
+2025-05-20 23:28:13,828 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 23:28:26,456 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 23:30:43,703 - api - INFO - ChainPilot API shutting down.
+2025-05-20 23:39:15,625 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=None
+2025-05-20 23:39:15,629 - api - INFO - Rate limiter initialized successfully.
+2025-05-20 23:39:43,054 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 23:39:43,062 - api - INFO - ChainPilot API started.
+2025-05-20 23:40:02,571 - api - INFO - Request object type: <class 'starlette.requests.Request'>, client IP: 127.0.0.1
+2025-05-20 23:40:02,571 - api - INFO - Received command: help from IP: 127.0.0.1
+2025-05-20 23:40:02,573 - api - ERROR - Error processing command: 'Limiter' object has no attribute '_rate_limit_exceeded_handler' from IP: 127.0.0.1
+Traceback (most recent call last):
+  File "C:\Users\jules\Desktop\ChainPilot\AI Agent\ChainPilot\api.py", line 141, in command
+    limiter._rate_limit_exceeded_handler(request=req)  # Manual rate limit check
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Limiter' object has no attribute '_rate_limit_exceeded_handler'
+2025-05-20 23:42:26,214 - api - INFO - ChainPilot API shutting down.
+2025-05-20 23:42:32,890 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=None
+2025-05-20 23:42:32,894 - api - INFO - Rate limiter initialized successfully.
+2025-05-20 23:42:53,265 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 23:42:53,272 - api - INFO - ChainPilot API started.
+2025-05-20 23:43:18,316 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 23:43:34,025 - api - ERROR - Unhandled exception: parameter `request` must be an instance of starlette.requests.Request
+Traceback (most recent call last):
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jules\AppData\Local\pypoetry\Cache\virtualenvs\chainpilot-0uXpV144-py3.11\Lib\site-packages\slowapi\extension.py", line 725, in async_wrapper
+    raise Exception(
+Exception: parameter `request` must be an instance of starlette.requests.Request
+2025-05-20 23:44:07,132 - api - INFO - ChainPilot API shutting down.
+2025-05-20 23:48:53,843 - api - INFO - Dotenv file loaded: True
+2025-05-20 23:48:53,843 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=None
+2025-05-20 23:49:57,890 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-20 23:49:57,897 - api - INFO - ChainPilot API started.
+2025-05-20 23:50:21,511 - api - INFO - Request object type: <class 'starlette.requests.Request'>, client IP: 127.0.0.1
+2025-05-20 23:50:21,511 - api - INFO - Received command: help from IP: 127.0.0.1
+2025-05-20 23:50:21,513 - api - INFO - Command executed successfully.
+2025-05-21 00:08:52,736 - api - INFO - Request object type: <class 'starlette.requests.Request'>, client IP: 127.0.0.1
+2025-05-21 00:08:52,738 - api - INFO - Received command: help from IP: 127.0.0.1
+2025-05-21 00:08:52,738 - api - INFO - Command executed successfully.
+2025-05-21 00:24:56,160 - api - INFO - Request object type: <class 'starlette.requests.Request'>, client IP: 127.0.0.1
+2025-05-21 00:24:56,160 - api - INFO - Received command: help from IP: 127.0.0.1
+2025-05-21 00:24:56,162 - api - INFO - Command executed successfully.
+2025-05-21 00:44:38,963 - api - INFO - Request object type: <class 'starlette.requests.Request'>, client IP: 127.0.0.1
+2025-05-21 00:44:38,963 - api - INFO - Received command: list tasks from IP: 127.0.0.1
+2025-05-21 00:44:41,895 - api - INFO - Command executed successfully.

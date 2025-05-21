@@ -46,7 +46,8 @@ wallet_data*.txt
 __pycache__/
 *.pyc
 .env.local
-wallet_data_base_sepolia.txt
-contracts/executor_abi.txt
-contracts/scheduler_abi.txt".env" 
 "__pycache__" 
+
+node_modules/
+
+

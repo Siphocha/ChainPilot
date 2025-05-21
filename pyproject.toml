@@ -16,6 +16,11 @@ coinbase-agentkit-openai-agents-sdk = "0.3.0"
 openai = ">=1.66.5"  # Updated version
 agentkit = "^0.0.2"
 cdp = "^0.0.2"
+gunicorn = "^23.0.0"
+uvicorn = "^0.34.2"
+slowapi = "^0.1.9"
+fastapi = "^0.115.12"
+starlette = "^0.46.2"
 
 [tool.poetry.scripts]
 start-agent = "chatbot:main"
