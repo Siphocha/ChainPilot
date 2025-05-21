@@ -1,0 +1,51 @@
+[33mdefe3ab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Merge changes
+[33m37242e7[m Resolve merge conflicts
+[33mb22c8a5[m Merge changes
+[33mc5e9a05[m Reapply and verify updates
+[33mbfe04f0[m Reapply and verify updates to render.yaml, requirements.txt, and packages/hardhat/package.json
+[33mb49e26a[m Update GitHub Actions workflow after removing submodule
+[33m90ca2c5[m Fix GitHub Actions workflow to handle submodules and Yarn in AI Agent/ChainPilot
+[33m4b7e492[m modified:   AI Agent/ChainPilot
+[33m5e5c264[m Remove duplicate
+[33me75d646[m Merge branch 'main' of https://github.com/Siphocha/ChainPilot
+[33m2311c70[m Fix duplicate 'test' key in packages/hardhat/package.json
+[33m475f104[m Add untracked content in AI Agent/ChainPilot
+[33mf20326b[m Add untracked files in AI Agent/ChainPilot
+[33me41b861[m Update AI Agent/ChainPilot submodule with render deployment requirements
+[33mcfea6b9[m Resolve merge conflicts after pulling origin/main
+[33m3e53a29[m Add render deployment requirements
+[33m6426d83[m Add workaround for deployment issue and env var debug
+[33m979091e[m Aligned chainpilot_actions with ChainPilotScheduler ABI, added Swagger UI test commands, included AI Agent as regular directory
+[33m211d46e[m Added environment variable
+[33mae39995[m requirements: Added environment variable validation and private key error handling
+[33mb7c3187[m Update requirements.txt
+[33m401e1ae[m Just some small sstuff
+[33mc6fec6f[m chatbot corrections
+[33m19d72e3[m resolve
+[33m48415c8[m Prepared api.py for Render deployment with CORS and error handling
+[33m8abe1a2[m Aligned chainpilot_actions with ChainPilotScheduler ABI, added Swagger UI test commands, included AI Agent as regular directory
+[33mf8db4b2[m Aligned chainpilot_actions with ChainPilotScheduler ABI, added Swagger UI test commands
+[33mea9857d[m added a space
+[33m01abb31[m ok ok ok
+[33m6556b8a[m Here we go almost there
+[33m539fc20[m Maybe it'll probably work now
+[33m7fe83f6[m does this work
+[33m6d71722[m we keep going and dont stop
+[33m9461530[m Merge pull request #6 from Siphocha/jonas
+[33ma9cb0ee[m[33m ([m[1;31morigin/jonas[m[33m)[m Merge branch 'main' into jonas
+[33m856a2bb[m Merge pull request #5 from 0xJonaseb11/jonas
+[33m8d7dcda[m update: unload artifacts from .gitignore for availability to everyone
+[33me33a657[m Merge pull request #4 from 0xJonaseb11/jonas
+[33m8236a7a[m update: ft local deployment
+[33medf6bad[m Merge pull request #3 from 0xJonaseb11/jonas
+[33mc2ce966[m update: ft interconnection <-> executor && scheduler
+[33mb63282b[m update: contract draft#01
+[33m0e72c4b[m[33m ([m[1;31morigin/agent[m[33m)[m Initial commit on anyname branch
+[33m858fb5a[m Merge pull request #2 from 0xJonaseb11/jonas
+[33m0da6553[m update: ft deploy && tests
+[33mb4ea4e7[m update: ft deploy && tests
+[33maadab31[m Merge pull request #1 from 0xJonaseb11/jonas
+[33m844ab42[m update: contracts structure #02
+[33m9742d5d[m update: init contract structure #01
+[33m3e7a57c[m Initial commit with 🏗️ Scaffold-ETH 2
+[33m332ea37[m[33m ([m[1;32mmaster[m[33m)[m Initial commit
