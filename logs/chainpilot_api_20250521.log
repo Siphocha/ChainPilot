@@ -1,0 +1,24 @@
+2025-05-21 16:43:12,664 - api - INFO - Dotenv file loaded: True
+2025-05-21 16:43:12,665 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=None
+2025-05-21 16:43:38,145 - api - WARNING - Attempt 1/3 failed to initialize ChainPilotAgent: Invalid wallet address format. Must be 0x followed by 40 hex characters.
+2025-05-21 16:44:03,207 - api - WARNING - Attempt 2/3 failed to initialize ChainPilotAgent: Invalid wallet address format. Must be 0x followed by 40 hex characters.
+2025-05-21 16:44:24,435 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-21 16:44:24,445 - api - INFO - ChainPilot API started.
+2025-05-21 16:54:57,740 - api - INFO - ChainPilot API shutting down.
+2025-05-21 16:55:05,792 - api - INFO - Dotenv file loaded: True
+2025-05-21 16:55:05,794 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-21 16:55:05,799 - api - WARNING - Attempt 1/3 failed to initialize ChainPilotAgent: ChainPilotAgent.__init__() got an unexpected keyword argument 'wallet_address'
+2025-05-21 16:55:05,801 - api - WARNING - Attempt 2/3 failed to initialize ChainPilotAgent: ChainPilotAgent.__init__() got an unexpected keyword argument 'wallet_address'
+2025-05-21 16:55:05,801 - api - WARNING - Attempt 3/3 failed to initialize ChainPilotAgent: ChainPilotAgent.__init__() got an unexpected keyword argument 'wallet_address'
+2025-05-21 16:55:05,802 - api - ERROR - Failed to initialize ChainPilotAgent after 3 attempts: ChainPilotAgent.__init__() got an unexpected keyword argument 'wallet_address'
+2025-05-21 16:57:52,987 - api - INFO - Dotenv file loaded: True
+2025-05-21 16:57:52,989 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-21 16:57:52,990 - api - ERROR - Missing required environment variables: CONTRACT_EXECUTOR_ADDRESS, CONTRACT_SCHEDULER_ADDRESS
+2025-05-21 17:02:10,925 - api - INFO - Dotenv file loaded: True
+2025-05-21 17:02:10,925 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-21 17:02:10,926 - api - ERROR - Missing required environment variables: CONTRACT_EXECUTOR_ADDRESS, CONTRACT_SCHEDULER_ADDRESS
+2025-05-21 17:07:02,502 - api - INFO - Dotenv file loaded: True
+2025-05-21 17:07:02,504 - api - INFO - Loaded env vars: WALLET_ADDRESS=0xab4862f2d4a158F2460f30126a697C4180933924, PRIVATE_KEY=0xbe379a7f65633e830c36c4c458d52be9cac1f857a57ab65bd7a6a2e990d4e81d
+2025-05-21 17:08:17,528 - api - INFO - ChainPilotAgent initialized successfully.
+2025-05-21 17:08:17,536 - api - INFO - ChainPilot API started.
+2025-05-21 17:08:48,412 - api - INFO - ChainPilot API shutting down.

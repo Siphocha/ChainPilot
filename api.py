@@ -10,7 +10,7 @@ import logging
 import logging.handlers
 from datetime import datetime
 
-# Configure logging with rotation first
+# Configure logging with rotation
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -21,8 +21,9 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 # File handler with rotation
-log_file = f"logs/chainpilot_api_{datetime.now().strftime('%Y%m%d')}.log"
-os.makedirs(os.path.dirname(log_file), exist_ok=True)
+log_dir = "logs"
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, f"chainpilot_api_{datetime.now().strftime('%Y%m%d')}.log")
 file_handler = logging.handlers.RotatingFileHandler(
     log_file, maxBytes=10*1024*1024, backupCount=5
 )
@@ -30,9 +31,26 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 # Load environment variables
-load_dotenv(dotenv_path="C:/Users/jules/Desktop/ChainPilot/AI Agent/ChainPilot/.env")
+load_dotenv()
 logger.info(f"Dotenv file loaded: {os.getenv('WALLET_ADDRESS') is not None}")
-logger.info(f"Loaded env vars: WALLET_ADDRESS={os.getenv('WALLET_ADDRESS')}, PRIVATE_KEY={os.getenv('PRIVATE_KEY')}")
+logger.info(f"Loaded env vars: WALLET_ADDRESS={os.getenv('WALLET_ADDRESS')}, PRIVATE_KEY={os.getenv('WALLET_PRIVATE_KEY')}")
+
+# Validate required environment variables
+required_env_vars = [
+    "WALLET_ADDRESS",
+    "WALLET_PRIVATE_KEY",
+    "NETWORK_RPC_URL",
+    "NETWORK_CHAIN_ID",
+    "CONTRACT_EXECUTOR_ADDRESS",
+    "CONTRACT_SCHEDULER_ADDRESS",
+    "OPENAI_API_KEY",
+    "ALCHEMY_API_KEY",
+    "BASESCAN_API_KEY"
+]
+missing_vars = [var for var in required_env_vars if not os.getenv(var)]
+if missing_vars:
+    logger.error(f"Missing required environment variables: {', '.join(missing_vars)}")
+    raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -50,7 +68,7 @@ origins = [
     frontend_url,             # Deployed Vercel frontend
 ]
 if os.getenv("RENDER") != "true":
-    origins.append("*")  # Allow all origins for local testing; restrict in production
+    origins.append("*")  # Allow all origins for local testing
 
 app.add_middleware(
     CORSMiddleware,
@@ -70,10 +88,12 @@ class CommandResponse(BaseModel):
     tx_hash: Optional[str] = None
     jobs: Optional[list] = None
 
-# Initialize agent with retry logic
+# Initialize agent
 def initialize_agent(max_retries=3):
     for attempt in range(max_retries):
         try:
+            # Initialize ChainPilotAgent without passing arguments
+            # Rely on environment variables set above
             agent = ChainPilotAgent()
             logger.info("ChainPilotAgent initialized successfully.")
             return agent
@@ -86,7 +106,7 @@ def initialize_agent(max_retries=3):
 
 agent = initialize_agent()
 
-# Custom exception handler for better error responses
+# Custom exception handler
 @app.exception_handler(Exception)
 async def custom_exception_handler(request: Request, exc: Exception):
     logger.error(f"Unhandled exception: {str(exc)}", exc_info=True)
@@ -98,7 +118,6 @@ async def custom_exception_handler(request: Request, exc: Exception):
 @app.get(
     "/",
     summary="Root endpoint for Render health check",
-    response_description="Returns a simple health status.",
     response_model=dict,
 )
 async def root():
@@ -107,7 +126,6 @@ async def root():
 @app.get(
     "/health",
     summary="Check API health",
-    response_description="Returns the health status of the API.",
     response_model=dict,
 )
 async def health():
@@ -116,13 +134,11 @@ async def health():
 @app.post(
     "/command",
     summary="Execute a ChainPilot command",
-    response_description="Executes a command and returns the result.",
     description="Supported commands: check_executor_permissions, check_scheduler_permissions, send_tokens, schedule_transfers, list_tasks, cancel_tasks, help.",
     response_model=CommandResponse,
 )
 async def command(request: CommandRequest, req: Request):
-    client_ip = req.client.host  # Simplified IP retrieval without slowapi
-    logger.info(f"Request object type: {type(req)}, client IP: {client_ip}")
+    client_ip = req.client.host
     logger.info(f"Received command: {request.command} from IP: {client_ip}")
     try:
         response = agent.process_command(request.command, confirm=request.confirm)
