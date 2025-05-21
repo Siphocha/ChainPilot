@@ -61,20 +61,12 @@ app = FastAPI(
 )
 
 # Add CORS middleware
-frontend_url = os.getenv("FRONTEND_URL", "https://chain-pilot-drab.vercel.app")
-origins = [
-    "http://localhost:3000",  # Development
-    frontend_url,             # Deployed Vercel frontend
-]
-if os.getenv("RENDER") != "true":
-    origins.append("*")  # Allow all origins for local testing
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["https://chain-pilot-drab.vercel.app"],
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class CommandRequest(BaseModel):
@@ -120,6 +112,10 @@ async def custom_exception_handler(request: Request, exc: Exception):
 async def root():
     return {"status": "healthy"}
 
+@app.head("/")
+async def root_head():
+    return Response(status_code=200)
+
 @app.get(
     "/health",
     summary="Check API health",
@@ -127,11 +123,6 @@ async def root():
 )
 async def health():
     return {"status": "healthy"}
-
-@app.options("/command")
-async def options_command():
-    logger.info("Received OPTIONS request for /command")
-    return Response(status_code=200)
 
 @app.post(
     "/command",
