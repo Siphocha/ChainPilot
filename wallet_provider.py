@@ -5,20 +5,25 @@ from dotenv import load_dotenv
 from web3 import Web3
 from types import SimpleNamespace
 
-# Load environment
-if not load_dotenv(".env"):
-    raise EnvironmentError("Failed to load .env file. Ensure it exists in the project directory.")
+# Attempt to load environment variables from .env (for local development), but don't fail if missing
+load_dotenv()  # Silently fails if .env is not present, which is fine for Render
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Environment vars
-PRIVATE_KEY = os.getenv("WALLET_PRIVATE_KEY")  # Use WALLET_PRIVATE_KEY from .env
+PRIVATE_KEY = os.getenv("WALLET_PRIVATE_KEY")
 NETWORK_NAME = os.getenv("NETWORK_NAME", "base_mainnet")
-RPC_URL = os.getenv("NETWORK_RPC_URL")  # Use NETWORK_RPC_URL from .env
+RPC_URL = os.getenv("NETWORK_RPC_URL")
 
-if not PRIVATE_KEY or not RPC_URL:
-    raise EnvironmentError("Set WALLET_PRIVATE_KEY and NETWORK_RPC_URL in .env")
+# Validate required environment variables
+required_vars = {
+    "WALLET_PRIVATE_KEY": PRIVATE_KEY,
+    "NETWORK_RPC_URL": RPC_URL,
+}
+missing_vars = [key for key, value in required_vars.items() if not value]
+if missing_vars:
+    raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
 class CustomWalletProvider:
     def __init__(self, base_provider):
